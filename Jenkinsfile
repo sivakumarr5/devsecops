@@ -1,4 +1,4 @@
-@Library('slack') _
+/* @Library('slack') _
 
 
 /////// ******************************* Code for fectching Failed Stage Name ******************************* ///////
@@ -35,7 +35,7 @@ List<Map> getStageResults( RunWrapper build ) {
 @NonCPS
 List<Map> getFailedStages( RunWrapper build ) {
     return getStageResults( build ).findAll{ it.result == 'FAILURE' }
-}
+} */
 
 /////// ******************************* Code for fectching Failed Stage Name ******************************* ///////
 
@@ -53,12 +53,12 @@ pipeline {
 
   stages {
 
- //    stage('Build Artifact - Maven') {
- //      steps {
- //        sh "mvn clean package -DskipTests=true"
- //        archive 'target/*.jar'
- //      }
- //    }
+    stage('Build Artifact - Maven') {
+      steps {
+        sh "mvn clean package -DskipTests=true"
+        archive 'target/*.jar'
+      }
+    }
 
  //    stage('Unit Tests - JUnit and JaCoCo') {
  //      steps {
@@ -235,17 +235,17 @@ pipeline {
  //      }
  //    }   
    
-      stage('Testing Slack - 1') {
-      steps {
-          sh 'exit 0'
-      }
-    }
+  //     stage('Testing Slack - 1') {
+  //     steps {
+  //         sh 'exit 0'
+  //     }
+  //   }
 
-   stage('Testing Slack - Error Stage') {
-      steps {
-          sh 'exit 0'
-      }
-    }
+  //  stage('Testing Slack - Error Stage') {
+  //     steps {
+  //         sh 'exit 0'
+  //     }
+  //   }
 
   }
 
